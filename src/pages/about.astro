@@ -1,0 +1,162 @@
+---
+import ContactCTA from "../components/ContactCTA.astro";
+import Hero from "../components/Hero.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+// Tableau des compétences
+const skills = [
+  { name: "HTML", image: "/assets/image/logo/html.png", alt: "HTML icon" },
+  { name: "CSS", image: "/assets/image/logo/css.png", alt: "CSS icon" },
+  { name: "JavaScript", image: "/assets/image/logo/javascript.png", alt: "JavaScript icon" },
+  { name: "PHP", image: "/assets/image/logo/php.png", alt: "PHP icon" },
+  { name: "GitHub", image: "/assets/image/logo/github.png", alt: "GitHub icon" },
+  { name: "Node JS", image: "/assets/image/logo/node.png", alt: "Node JS icon" },
+  { name: "MongoDB", image: "/assets/image/logo/mongo.png", alt: "MongoDB icon" },
+  { name: "Tailwind", image: "/assets/image/logo/tailwind.png", alt: "Tailwind icon" },
+  { name: "React", image: "/assets/image/logo/react.png", alt: "React icon" },
+  { name: "Symfony", image: "/assets/image/logo/symfony.png", alt: "Symfony icon" },
+  { name: "Express JS", image: "/assets/image/logo/express.png", alt: "Express JS icon" },
+  { name: "Electron JS", image: "/assets/image/logo/electron.png", alt: "Electron JS icon" },
+  { name: "Next JS", image: "/assets/image/logo/next-js.svg", alt: "Next JS icon" },
+  { name: "Bootstrap", image: "/assets/image/logo/bootstrap.png", alt: "Bootstrap icon" },
+  { name: "TypeScript", image: "/assets/image/logo/typeScript.png", alt: "TypeScript icon" },
+  { name: "React Native", image: "/assets/image/logo/ReactNative.png", alt: "ReactNative icon" },
+];
+---
+
+<BaseLayout
+  title="About | Mustapha Mejri"
+  description="About Mustapha Mejri"
+>
+  <div class="stack gap-20">
+    <main class="wrapper about">
+      <Hero
+        title="About"
+        tagline="Thanks for stopping by. Read below to learn more about myself and my background."
+      />
+
+      <!-- Section Background -->
+      <section class="centered-section">
+        <h2 class="section-title">Background</h2>
+        <div class="content">
+          <p>
+            Mustapha Mejri, 26 years old, born in France, I am a
+            passionate and determined full-stack developer. With a
+            solid education and extensive self-taught experience, I
+            am a dynamic professional ready to tackle the challenges
+            of web development.
+          </p>
+		  <br/>
+          <p>
+            Having acquired extensive skills in HTML, CSS,
+            JavaScript, React, as well as PHP and Python for the
+            back-end, I am capable of designing and implementing
+            innovative technological solutions. My ability to learn
+            quickly and adapt to new technologies allows me to stay
+            at the forefront of the industry.
+		</p>
+		  <br/>
+          <p>
+            During my apprenticeship at L'Oréal, I served as a
+            Maintenance Manager, where I gained valuable experience,
+            autonomy, and responsibility. These experiences were
+            instrumental in developing my skills as a full-stack
+            developer.
+          </p>
+        </div>
+      </section>
+
+      <!-- Section Skills -->
+      <section class="centered-section">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-grid">
+          {skills.map(skill => (
+            <div class="skill-item shadow-md hover-scale">
+              <img class="logoimg" src={skill.image} alt={skill.alt} />
+              <p class="my-4">{skill.name}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Section Education -->
+	  <section class="centered-section">
+		<h2 class="section-title">Education</h2>
+		<div class="content">
+		  <ul>
+			<li><strong>Professional Title:</strong> Application Developer Designer (Level Bac+3/4)</li>
+			<li><strong>Bachelor Degree:</strong> Management of Maintenance Services (Apprenticeship in L'Oréal)</li>
+			<li><strong>Certifications:</strong> 
+			  MS Web Integrator Developer, MS FullStack, MS Application Development
+			</li>
+			<li><strong>Technical Skills:</strong> 
+			  Advanced Web Development Techniques
+			</li>
+		  </ul>
+		</div>
+	  </section>
+	  
+    </main>
+
+    <ContactCTA />
+  </div>
+</BaseLayout>
+
+<style>
+  .about {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+  }
+
+  .centered-section {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 800px;
+  }
+
+  .content p {
+    font-size: 1.2rem; /* Agrandit le texte de la description */
+    line-height: 1.8;
+    color: var(--gray-200);
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 colonnes fixes */
+    gap: 2rem;
+    justify-content: center;
+    padding: 2rem 0;
+  }
+
+  .skill-item {
+    transition: transform 0.2s;
+    text-align: center;
+  }
+
+  .skill-item:hover {
+    transform: scale(1.05);
+  }
+
+  .logoimg {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-size: var(--text-xl);
+    color: var(--gray-0);
+    margin-bottom: 1rem;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  ul li {
+    margin-bottom: 1rem;
+    color: var(--gray-200);
+  }
+</style>
